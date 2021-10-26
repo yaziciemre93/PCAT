@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect("mongodb+srv://admin-emre:test123@cluster0.s8yr4.mongodb.net/pcatDB")
 
 //create schema
 const PhotoSchema = new Schema({
