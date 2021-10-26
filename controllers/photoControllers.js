@@ -22,9 +22,7 @@ exports.getPhoto  = async (req, res) => {
 
 exports.createPhoto = async (req, res) => {
     let uploadedImage = req.files.image;
-    console.log(uploadedImage);
     let uploadPath = path.join(__dirname, "../") + "public/uploads/" + uploadedImage.name;
-    console.log(uploadPath);
     const uploadDir = "public/uploads";
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir);
@@ -54,7 +52,6 @@ exports.updatePhoto = async (req,res) => {
 
 exports.deletePhoto = async (req,res) => {
     const photo = await Photo.findOne({_id: req.params.id})
-    console.log(__dirname);
     let deletedImage = path.join(__dirname, "../") +"/public/"+ photo.image
     fs.unlinkSync(deletedImage)
     await Photo.findByIdAndRemove(req.params.id)
